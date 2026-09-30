@@ -435,8 +435,8 @@ export const skills: SkillGroup[] = [
 ];
 
 export const interests: L = {
-  en: 'Video games, mostly League of Legends, World of Warcraft and Counter-Strike. Working out two to three times a week and playing padel. Skiing whenever the season allows.',
-  da: 'Computerspil, især League of Legends, World of Warcraft og Counter-Strike. Træner to til tre gange om ugen og spiller padel. Elsker at stå på ski, når sæsonen tillader det.',
+  en: 'Video games, mostly League of Legends, World of Warcraft and Counter-Strike. Working out two to three times a week and playing padel tennis. Skiing whenever the season allows.',
+  da: 'Computerspil, især League of Legends, World of Warcraft og Counter-Strike. Træner to til tre gange om ugen og spiller padeltennis. Elsker at stå på ski, når sæsonen tillader det.',
 };
 
 export const languages: { name: L; level: L }[] = [
