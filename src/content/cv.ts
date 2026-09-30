@@ -290,6 +290,7 @@ export type Project = {
   imageAlt?: L;
   featured?: boolean;
   todo?: boolean; // shows a subtle "text pending" note while placeholder
+  docx?: boolean; // false = leave out of the Word CVs (site only)
 };
 
 export const projects: Project[] = [
@@ -331,6 +332,17 @@ export const projects: Project[] = [
     repo: 'https://github.com/Toasting-Snowdragon-9999/pan_tilt_control_system',
   },
   {
+    id: 'mobile-robot',
+    title: { en: 'Mobile robot controlled by audio tones (DTMF)', da: 'Mobil robot styret med lydtoner (DTMF)' },
+    context: { en: 'Semester project · 3rd semester · Autumn 2024', da: 'Semesterprojekt · 3. semester · Efterår 2024' },
+    summary: {
+      en: 'A TurtleBot3 Burger driven over sound: commands are encoded as DTMF tones, played from a PC and decoded on the robot with the Goertzel algorithm. The C++ stack is split into physical, data-link, transport and application layers with CRC error detection and timers for retransmission, mirroring a classic network protocol stack. Fully Doxygen-documented.',
+      da: 'En TurtleBot3 Burger styret over lyd: kommandoer kodes som DTMF-toner, afspilles fra en PC og afkodes på robotten med Goertzel-algoritmen. C++-stakken er delt i fysisk lag, datalink-, transport- og applikationslag med CRC-fejldetektion og timere til gensendelse, som en klassisk netværksprotokolstak. Fuldt dokumenteret med Doxygen.',
+    },
+    tags: ['C++', 'Signal processing', 'Goertzel / FFT', 'Protocol design', 'TurtleBot3', 'PortAudio', 'Doxygen'],
+    repo: 'https://github.com/Toasting-Snowdragon-9999/Mobile_robotsystem',
+  },
+  {
     id: 'exoskeleton',
     title: { en: 'EMG-driven finger exoskeleton for tremor suppression', da: 'EMG-styret finger-exoskelet til tremordæmpning' },
     context: { en: 'Ongoing personal research project · 2026', da: 'Igangværende personligt forskningsprojekt · 2026' },
@@ -341,15 +353,26 @@ export const projects: Project[] = [
     tags: ['Python', 'Signal processing', 'EMG', 'Biomechatronics'],
   },
   {
-    id: 'drones',
-    title: { en: 'Drones for computer vision applications', da: 'Droner til computer vision-anvendelser' },
-    context: { en: 'Summer school elective · 5th semester · Autumn 2025', da: 'Sommerskole-valgfag · 5. semester · Efterår 2025' },
+    id: 'ignis',
+    title: { en: 'Ignis – C++ rendering and game engine', da: 'Ignis – C++ rendering- og spilmotor' },
+    context: { en: 'Personal project · 2025–present · part of the Helios project', da: 'Personligt projekt · 2025–nu · del af Helios-projektet' },
     summary: {
-      en: 'TODO: two to four lines about what you built or flew during the summer school.',
-      da: 'TODO: to til fire linjer om hvad du byggede eller fløj på sommerskolen.',
+      en: 'A from-scratch OpenGL engine in modern C++ with a streamed procedural voxel planet as the test world. Chunk generation and meshing run on a priority job system across worker threads while the render thread uploads to the GPU, keeping the world at well over 1000 fps as the player moves. Includes a quaternion-based free-flight camera, day/night lighting, a Fresnel ocean shader, an entity and inventory system, and an ImGui debug overlay. Built with CMake, GLFW, GLAD, GLM, Assimp and headless test suites.',
+      da: 'En OpenGL-motor skrevet fra bunden i moderne C++ med en streamet, procedurelt genereret voxel-planet som testverden. Chunk-generering og meshing kører på et prioriteret job-system på tværs af worker-tråde, mens render-tråden uploader til GPU’en, så verdenen holder langt over 1000 fps, mens spilleren bevæger sig. Indeholder et quaternion-baseret frit kamera, dag/nat-belysning, en Fresnel-havshader, et entity- og inventory-system samt et ImGui-debugoverlay. Bygget med CMake, GLFW, GLAD, GLM, Assimp og headless testsuiter.',
     },
-    tags: ['Drones', 'Computer vision'],
-    todo: true,
+    tags: ['C++', 'OpenGL', 'GLSL', 'Multithreading', 'CMake', 'Procedural generation', 'ImGui'],
+  },
+  {
+    id: 'cardcol',
+    docx: false,
+    title: { en: 'CardCol – trading-card collection app', da: 'CardCol – app til samlekort' },
+    context: { en: 'Personal project · 2026', da: 'Personligt projekt · 2026' },
+    summary: {
+      en: 'A web app for managing trading-card collections across six games, presented as a real binder with 3×3 sleeve pages and an animated page turn. Wishlist, market values and accounts, works offline. React 19, TypeScript and Vite with Vitest tests, documented architecture and linting.',
+      da: 'En webapp til at holde styr på samlekort på tværs af seks spil, vist som et rigtigt ringbind med 3×3 lommesider og animeret sidevending. Ønskeliste, markedsværdi og konti, virker offline. React 19, TypeScript og Vite med Vitest-tests, dokumenteret arkitektur og linting.',
+    },
+    tags: ['TypeScript', 'React', 'Vite', 'Vitest', 'UI/UX'],
+    repo: 'https://github.com/Toasting-Snowdragon-9999/pokecol',
   },
   {
     id: 's4',
@@ -360,17 +383,6 @@ export const projects: Project[] = [
       da: 'TODO: samme semester som pan-tilt-projektet. Hvis det er samme projekt, slet denne post.',
     },
     tags: ['Control'],
-    todo: true,
-  },
-  {
-    id: 's3',
-    title: { en: 'Mobile robot systems', da: 'Mobile robotsystemer' },
-    context: { en: 'Semester project · 3rd semester · Autumn 2024', da: 'Semesterprojekt · 3. semester · Efterår 2024' },
-    summary: {
-      en: 'TODO: two to four lines about the mobile robot project (platform, sensors, navigation, what worked).',
-      da: 'TODO: to til fire linjer om mobilrobot-projektet (platform, sensorer, navigation, hvad der virkede).',
-    },
-    tags: ['Mobile robots'],
     todo: true,
   },
   {

@@ -17,7 +17,7 @@ const MUTED = '6F665C';
 const RULE = 'D9D2C2';
 const FONT_HEAD = 'Georgia';
 const FONT_BODY = 'Calibri';
-const CONTENT_WIDTH = 11906 - 2 * 1080; // A4 width minus margins, in DXA
+const CONTENT_WIDTH = 11906 - 2 * 900; // A4 width minus margins, in DXA
 
 const STR = {
   en: {
@@ -157,9 +157,8 @@ function build(lang) {
 
   // ---- Projects ----
   children.push(h1(S.projects));
-  for (const p of projects.filter((p) => !p.todo)) {
+  for (const p of projects.filter((p) => !p.todo && p.docx !== false)) {
     children.push(...entry(t(p.title), t(p.context), '', t(p.summary)));
-    if (p.details) children.push(...bullets(p.details.map(t)));
     const meta = [];
     if (p.tags?.length) meta.push(run(p.tags.join(' · '), { size: 19, color: MUTED }));
     if (p.repo) meta.push(run(`   ·   ${S.repo}: `, { size: 19, color: MUTED }), link(p.repo.replace('https://github.com/', 'github.com/'), p.repo));
@@ -171,7 +170,17 @@ function build(lang) {
   const sorted = [...experience].sort((a, b) => (b.to ?? '9999').localeCompare(a.to ?? '9999') || b.from.localeCompare(a.from));
   for (const e of sorted) {
     const when = `${fmtYM(e.from, lang)} – ${e.to ? fmtYM(e.to, lang) : S.present}`;
-    children.push(...entry(t(e.role), `${e.company} · ${e.place}`, when, t(e.description)));
+    // Company on the title line keeps each job to two lines.
+    children.push(new Paragraph({
+      spacing: { before: 90, after: 10 },
+      tabStops: [{ type: TabStopType.RIGHT, position: CONTENT_WIDTH }],
+      children: [
+        new TextRun({ text: t(e.role), font: FONT_BODY, size: 22, bold: true, color: INK }),
+        run(`  ·  ${e.company}, ${e.place}`, { size: 19, color: MUTED }),
+        new TextRun({ text: `	${when}`, font: FONT_BODY, size: 19, color: MUTED }),
+      ],
+    }));
+    children.push(body(t(e.description)));
   }
 
   // ---- Skills ----
@@ -213,7 +222,7 @@ function build(lang) {
       }],
     },
     sections: [{
-      properties: { page: { margin: { top: 850, right: 1080, bottom: 850, left: 1080 } } },
+      properties: { page: { margin: { top: 720, right: 900, bottom: 720, left: 900 } } },
       children,
     }],
   });
