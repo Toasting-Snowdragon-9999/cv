@@ -17,7 +17,7 @@ const description = profile.summary.en;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="profile" />
-    <meta property="og:image" content={new URL(withBase('/photo.jpg'), Astro.site)} />
+    <meta property="og:image" content={Astro.site ? new URL(withBase('/photo.jpg'), Astro.site).href : withBase('/photo.jpg')} />
     <meta name="theme-color" content="#f4f1ea" />
     <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
