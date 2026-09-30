@@ -49,7 +49,7 @@ function build(lang) {
   const S = STR[lang];
   const t = (s) => (typeof s === 'string' ? s : s[lang]);
 
-  const run = (text, opts = {}) => new TextRun({ text, font: FONT_BODY, size: 20, color: INK, ...opts });
+  const run = (text, opts = {}) => new TextRun({ text, font: FONT_BODY, size: 19, color: INK, ...opts });
   const body = (text, opts = {}) => new Paragraph({ spacing: { after: 50 }, ...opts.para, children: [run(text, opts.run)] });
 
   const h1 = (text) => new Paragraph({
@@ -116,7 +116,7 @@ function build(lang) {
 
   // ---- Profile ----
   children.push(h1(S.profile));
-  children.push(body(t(profile.summary)));
+  for (const para of profile.summary) children.push(body(t(para)));
 
   // ---- Education ----
   children.push(h1(S.education));
@@ -207,7 +207,7 @@ function build(lang) {
     creator: person.name,
     title: `${person.name} – CV`,
     styles: {
-      default: { document: { run: { font: FONT_BODY, size: 20, color: INK } } },
+      default: { document: { run: { font: FONT_BODY, size: 19, color: INK } } },
       paragraphStyles: [
         { id: 'Heading1', name: 'Heading 1', basedOn: 'Normal', next: 'Normal', quickFormat: true,
           run: { font: FONT_HEAD, size: 26, color: OLIVE }, paragraph: { outlineLevel: 0 } },

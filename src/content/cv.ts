@@ -32,12 +32,21 @@ export const person = {
   born: '2002-01-15',
 };
 
-export const profile: { summary: L; highlights: L[] } = {
-  // TODO: confirm or rewrite this draft profile text.
-  summary: {
-    en: 'Robotics engineer with a BSc in Robot Systems from the University of Southern Denmark, now studying for the industrial MSc in Robotics in Odense while working as a software developer at 4X-Robots. I like working across the whole stack: from control loops running on microcontrollers and FPGAs, to physics simulation, control theory and learning-based methods. My bachelor project built a bio-inspired locomotion controller that makes a quadruped robot walk, trot and gallop in MuJoCo.',
-    da: 'Robotingeniør med en bachelor i robotteknologi fra Syddansk Universitet, nu i gang med erhvervskandidaten i robotteknologi i Odense ved siden af et job som softwareudvikler hos 4X-Robots. Jeg arbejder gerne på tværs af hele stakken: fra reguleringssløjfer på mikrocontrollere og FPGA’er til fysiksimulation, reguleringsteori og læringsbaserede metoder. Mit bachelorprojekt byggede en bio-inspireret gangkontroller, der får en firbenet robot til at gå, trave og galoppere i MuJoCo.',
-  },
+export const profile: { summary: L[]; highlights: L[] } = {
+  summary: [
+    {
+      en: 'I’m a robotics engineer with a BSc in Robot Systems from SDU, now on the industrial master’s in Robotics while working as a software developer at 4X-Robots. What drives me is software that solves a hard problem well. I enjoy working out the architecture, how the pieces fit together, and how a component can be generalised so it serves the next problem as well as the current one.',
+      da: 'Jeg er robotingeniør med en bachelor i robotteknologi fra SDU og læser nu erhvervskandidaten i robotteknologi ved siden af mit job som softwareudvikler hos 4X-Robots. Det, der driver mig, er software, der løser et svært problem godt. Jeg nyder at finde arkitekturen, hvordan delene hænger sammen, og hvordan en komponent kan generaliseres, så den også løser det næste problem og ikke kun det aktuelle.',
+    },
+    {
+      en: 'I like teams where everyone has a clear role. I’m at my best when I can go into my own bubble with a specific piece, work it through in depth, and then bring the findings back to the team as the work progresses. Structured analysis, hands-on development and continuous iteration are how I get from an idea to something reliable.',
+      da: 'Jeg trives i teams, hvor alle har en klar rolle. Jeg er bedst, når jeg kan gå ind i min egen boble med en konkret del, arbejde den grundigt igennem og derefter dele mine resultater med teamet, efterhånden som arbejdet skrider frem. Struktureret analyse, praktisk udvikling og løbende iteration er vejen fra idé til noget, der virker pålideligt.',
+    },
+    {
+      en: 'I also bring a lot of experience working with people, from teaching and customer service to helping colleagues get up to speed. I’m patient, I enjoy passing on what I know, and I’d rather explain something twice than see someone stuck.',
+      da: 'Jeg har desuden stor erfaring med at arbejde med mennesker, fra undervisning og kundeservice til at hjælpe kolleger godt i gang. Jeg er tålmodig, kan lide at give videre, hvad jeg ved, og forklarer hellere noget to gange end at se nogen sidde fast.',
+    },
+  ],
   highlights: [
     { en: 'BSc Robot Systems, SDU (2026)', da: 'BSc i robotteknologi, SDU (2026)' },
     { en: 'MSc Robotics, industrial master’s (2026–)', da: 'Erhvervskandidat i robotteknologi (2026–)' },

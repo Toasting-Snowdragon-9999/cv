@@ -110,7 +110,9 @@ html[data-lang='da'] .lang [data-set='da'] { background: var(--olive); color: #f
 /* ---------- Profile ---------- */
 .profile-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
 @media (min-width: 760px) { .profile-grid { grid-template-columns: 1.6fr 1fr; gap: 48px; } }
-.lead { font-size: clamp(1.05rem, 1.8vw, 1.2rem); line-height: 1.7; color: var(--ink); }
+.lead { font-size: clamp(0.97rem, 1.6vw, 1.06rem); line-height: 1.7; color: var(--ink); }
+.lead p { margin: 0 0 0.9em; }
+.lead p:last-child { margin-bottom: 0; }
 .highlights li { padding: 12px 0; border-top: 1px solid var(--line); display: flex; gap: 12px; font-size: 0.95rem; color: var(--ink-soft); }
 .highlights li:first-child { border-top: 0; padding-top: 0; }
 .highlights li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--olive); margin-top: 8px; flex-shrink: 0; }

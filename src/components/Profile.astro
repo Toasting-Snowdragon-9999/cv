@@ -5,7 +5,9 @@ import { profile, ui } from '../content/cv';
 ---
 <Section id="profile" num="01" title={ui.nav.profile}>
   <div class="profile-grid">
-    <p class="lead"><T s={profile.summary} /></p>
+    <div class="lead">
+      {profile.summary.map((para) => <p><T s={para} /></p>)}
+    </div>
     <ul class="highlights">
       {profile.highlights.map((h) => <li><T s={h} /></li>)}
     </ul>
