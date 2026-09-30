@@ -50,11 +50,11 @@ function build(lang) {
   const t = (s) => (typeof s === 'string' ? s : s[lang]);
 
   const run = (text, opts = {}) => new TextRun({ text, font: FONT_BODY, size: 20, color: INK, ...opts });
-  const body = (text, opts = {}) => new Paragraph({ spacing: { after: 60 }, ...opts.para, children: [run(text, opts.run)] });
+  const body = (text, opts = {}) => new Paragraph({ spacing: { after: 50 }, ...opts.para, children: [run(text, opts.run)] });
 
   const h1 = (text) => new Paragraph({
     heading: HeadingLevel.HEADING_1,
-    spacing: { before: 200, after: 70 },
+    spacing: { before: 170, after: 60 },
     border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: RULE, space: 4 } },
     children: [new TextRun({ text, font: FONT_HEAD, size: 26, color: OLIVE, bold: false })],
   });
