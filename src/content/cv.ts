@@ -402,8 +402,13 @@ export type SkillGroup = { name: L; items: (string | L)[] };
 
 export const skills: SkillGroup[] = [
   {
-    name: { en: 'Robotics & control', da: 'Robotteknologi & regulering' },
-    items: ['Control theory (PID, state space, sliding mode)', 'Robot kinematics & inverse kinematics', 'Central pattern generators', 'Path planning (A*, bug algorithms)', 'MuJoCo simulation', 'Underactuated systems'],
+    name: { en: 'Ways of working', da: 'Arbejdsform' },
+    items: [
+      { en: 'Part of an eight-person development team on a large codebase at 4X-Robots', da: 'Del af et udviklingsteam på otte på en stor kodebase hos 4X-Robots' },
+      { en: 'Project work in small teams every semester', da: 'Projektarbejde i små grupper hvert semester' },
+      { en: 'Report writing and oral defence', da: 'Rapportskrivning og mundtligt forsvar' },
+      { en: 'Curious, thorough, hands-on', da: 'Nysgerrig, grundig, praktisk anlagt' },
+    ],
   },
   {
     name: { en: 'Embedded & hardware', da: 'Embedded & hardware' },
@@ -414,13 +419,8 @@ export const skills: SkillGroup[] = [
     items: ['Python (NumPy, SciPy, Gymnasium, Stable-Baselines3)', 'C++ (CMake)', 'MATLAB', 'OpenCV', 'Reinforcement learning (PPO, Q-learning)', 'Signal processing & EMG', 'Git, GitHub, Bitbucket, LaTeX', 'Testing & code quality: pytest, mypy, flake8, pylint', 'Linux (Ubuntu & Arch), Windows'],
   },
   {
-    name: { en: 'Ways of working', da: 'Arbejdsform' },
-    items: [
-      { en: 'Part of an eight-person development team on a large codebase at 4X-Robots', da: 'Del af et udviklingsteam på otte på en stor kodebase hos 4X-Robots' },
-      { en: 'Project work in small teams every semester', da: 'Projektarbejde i små grupper hvert semester' },
-      { en: 'Report writing and oral defence', da: 'Rapportskrivning og mundtligt forsvar' },
-      { en: 'Curious, thorough, hands-on', da: 'Nysgerrig, grundig, praktisk anlagt' },
-    ],
+    name: { en: 'Robotics & control', da: 'Robotteknologi & regulering' },
+    items: ['Control theory (PID, state space, sliding mode)', 'Robot kinematics & inverse kinematics', 'Central pattern generators', 'Path planning (A*, bug algorithms)', 'MuJoCo simulation', 'Underactuated systems'],
   },
 ];
 
