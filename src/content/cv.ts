@@ -333,13 +333,13 @@ export const projects: Project[] = [
   },
   {
     id: 'mobile-robot',
-    title: { en: 'Mobile robot controlled by audio tones (DTMF)', da: 'Mobil robot styret med lydtoner (DTMF)' },
+    title: { en: 'Mobile robot commanded by audio tones (DTMF)', da: 'Mobil robot styret med lydtoner (DTMF)' },
     context: { en: 'Semester project · 3rd semester · Autumn 2024', da: 'Semesterprojekt · 3. semester · Efterår 2024' },
     summary: {
-      en: 'A TurtleBot3 Burger driven over sound: commands are encoded as DTMF tones, played from a PC and decoded on the robot with the Goertzel algorithm. The C++ stack is split into physical, data-link, transport and application layers with CRC error detection and timers for retransmission, mirroring a classic network protocol stack. Fully Doxygen-documented.',
-      da: 'En TurtleBot3 Burger styret over lyd: kommandoer kodes som DTMF-toner, afspilles fra en PC og afkodes på robotten med Goertzel-algoritmen. C++-stakken er delt i fysisk lag, datalink-, transport- og applikationslag med CRC-fejldetektion og timere til gensendelse, som en klassisk netværksprotokolstak. Fuldt dokumenteret med Doxygen.',
+      en: 'A TurtleBot3 Burger that executes paths sent to it as sound. A GUI builds the path, a self-designed half-duplex protocol encodes it as DTMF tones, and the robot decodes them in real time with the Goertzel algorithm and drives the route through ROS 2. The C++ code follows a four-layer architecture inspired by TCP/IP (physical, data link, transport, application) with CRC error detection, acknowledgements and retransmission timers. Verified reliable with up to 60 dBA background noise; 100 bits transferred in 4.4 s.',
+      da: 'En TurtleBot3 Burger, der udfører ruter sendt til den som lyd. En GUI opbygger ruten, en selvdesignet halv-dupleks-protokol koder den som DTMF-toner, og robotten afkoder dem i realtid med Goertzel-algoritmen og kører ruten via ROS 2. C++-koden følger en firelags-arkitektur inspireret af TCP/IP (fysisk lag, datalink-, transport- og applikationslag) med CRC-fejldetektion, kvitteringer og gensendelsestimere. Testet pålidelig ved op til 60 dBA baggrundsstøj; 100 bit overført på 4,4 s.',
     },
-    tags: ['C++', 'Signal processing', 'Goertzel / FFT', 'Protocol design', 'TurtleBot3', 'PortAudio', 'Doxygen'],
+    tags: ['C++', 'ROS 2', 'Signal processing', 'Goertzel', 'Protocol design', 'Software architecture', 'TurtleBot3', 'Doxygen'],
     repo: 'https://github.com/Toasting-Snowdragon-9999/Mobile_robotsystem',
   },
   {
@@ -375,37 +375,26 @@ export const projects: Project[] = [
     repo: 'https://github.com/Toasting-Snowdragon-9999/pokecol',
   },
   {
-    id: 's4',
-    title: { en: 'Control and regulation of robot systems', da: 'Kontrol og regulering af robotsystemer' },
-    context: { en: 'Semester project · 4th semester · Spring 2025', da: 'Semesterprojekt · 4. semester · Forår 2025' },
-    summary: {
-      en: 'TODO: this is the same semester as the pan-tilt project. If they are the same project, delete this entry.',
-      da: 'TODO: samme semester som pan-tilt-projektet. Hvis det er samme projekt, slet denne post.',
-    },
-    tags: ['Control'],
-    todo: true,
-  },
-  {
-    id: 's2',
-    title: { en: 'Autonomous robots', da: 'Autonome robotter' },
+    id: 'gripper',
+    docx: false,
+    title: { en: 'LEGO-writing gripper for a UR5 collaborative robot', da: 'LEGO-skrivende gripper til en UR5-cobot' },
     context: { en: 'Semester project · 2nd semester · Spring 2024', da: 'Semesterprojekt · 2. semester · Forår 2024' },
     summary: {
-      en: 'TODO: two to four lines about the autonomous robot project.',
-      da: 'TODO: to til fire linjer om projektet i autonome robotter.',
+      en: 'Designed, 3D-printed and controlled a gripper that picks up four 2×2 LEGO bricks at a time and places them on a baseplate to spell words with a UR5 CB3 robot. Servo motion runs on a microcontroller programmed in C; a C++ desktop application with a GUI and a database of letter coordinates drives the robot over Modbus TCP/IP and URScript.',
+      da: 'Designede, 3D-printede og styrede en gripper, der samler fire 2×2 LEGO-klodser op ad gangen og placerer dem på en byggeplade, så en UR5 CB3-robot kan stave ord. Servostyringen kører på en mikrocontroller programmeret i C; en C++-applikation med GUI og en database over bogstavkoordinater styrer robotten over Modbus TCP/IP og URScript.',
     },
-    tags: ['Autonomous robots'],
-    todo: true,
+    tags: ['C', 'C++', 'Microcontroller', 'Servo control', 'UR5', 'Modbus TCP/IP', 'URScript', '3D printing', 'GUI'],
   },
   {
-    id: 's1',
-    title: { en: 'Basic robot control', da: 'Grundlæggende styring af robotter' },
+    id: 'plotter',
+    docx: false,
+    title: { en: 'Self-sharpening drawing robot from a modified 3D printer', da: 'Selvspidsende tegnerobot bygget af en ombygget 3D-printer' },
     context: { en: 'Semester project · 1st semester · Autumn 2023', da: 'Semesterprojekt · 1. semester · Efterår 2023' },
     summary: {
-      en: 'TODO: two to four lines about the first-semester robot control project.',
-      da: 'TODO: to til fire linjer om projektet i grundlæggende styring af robotter.',
+      en: 'Converted a 3D printer into a pencil plotter that reproduces a photographed drawing. Image analysis extracts the edges of the source image and turns them into tool paths; the machine draws them with a pencil and automatically sharpens it in a built-in sharpener when needed.',
+      da: 'Ombyggede en 3D-printer til en blyantsplotter, der gengiver en fotograferet tegning. Billedanalyse finder kanterne i kildebilledet og omsætter dem til værktøjsbaner; maskinen tegner dem med blyant og spidser den automatisk i en indbygget blyantspidser, når der er behov.',
     },
-    tags: ['Robot control'],
-    todo: true,
+    tags: ['Image analysis', 'Edge detection', 'Motion control', 'Mechanical design', '3D printer'],
   },
 ];
 
