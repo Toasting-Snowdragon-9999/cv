@@ -321,6 +321,16 @@ export const projects: Project[] = [
     imageAlt: { en: 'Unitree Go2 quadruped in the MuJoCo simulator', da: 'Unitree Go2-robot i MuJoCo-simulatoren' },
   },
   {
+    id: 'exoskeleton',
+    title: { en: 'EMG-driven finger exoskeleton for tremor suppression', da: 'EMG-styret finger-exoskelet til tremordæmpning' },
+    context: { en: 'Master class: Adaptive Embodied Control Systems · SDU · 2026', da: 'Master class: Adaptive Embodied Control Systems · SDU · 2026' },
+    summary: {
+      en: 'A 2-DOF thumb–index hand exoskeleton concept for Parkinsonian tremor. Surface EMG is processed in Python to separate voluntary grasp intent from tremor-band muscle activity, so that adaptive stiffness or damping is applied only while tremor is present and natural movement is preserved.',
+      da: 'Et 2-DOF tommel–pegefinger-exoskelet-koncept til parkinsontremor. Overflade-EMG behandles i Python for at adskille viljestyret gribeintention fra muskelaktivitet i tremorbåndet, så adaptiv stivhed eller dæmpning kun påføres, mens der er tremor, og naturlig bevægelse bevares.',
+    },
+    tags: ['Python', 'Signal processing', 'EMG', 'Biomechatronics'],
+  },
+  {
     id: 'pantilt',
     title: { en: 'Pan-tilt control system with ball tracking', da: 'Pan-tilt-reguleringssystem med boldtracking' },
     context: { en: 'Semester project · 4th semester · Spring 2025', da: 'Semesterprojekt · 4. semester · Forår 2025' },
@@ -343,14 +353,26 @@ export const projects: Project[] = [
     repo: 'https://github.com/Toasting-Snowdragon-9999/Mobile_robotsystem',
   },
   {
-    id: 'exoskeleton',
-    title: { en: 'EMG-driven finger exoskeleton for tremor suppression', da: 'EMG-styret finger-exoskelet til tremordæmpning' },
-    context: { en: 'Master class: Adaptive Embodied Control Systems · SDU · 2026', da: 'Master class: Adaptive Embodied Control Systems · SDU · 2026' },
+    id: 'gripper',
+    docx: false,
+    title: { en: 'LEGO-writing gripper for a UR5 collaborative robot', da: 'LEGO-skrivende gripper til en UR5-cobot' },
+    context: { en: 'Semester project · 2nd semester · Spring 2024', da: 'Semesterprojekt · 2. semester · Forår 2024' },
     summary: {
-      en: 'A 2-DOF thumb–index hand exoskeleton concept for Parkinsonian tremor. Surface EMG is processed in Python to separate voluntary grasp intent from tremor-band muscle activity, so that adaptive stiffness or damping is applied only while tremor is present and natural movement is preserved.',
-      da: 'Et 2-DOF tommel–pegefinger-exoskelet-koncept til parkinsontremor. Overflade-EMG behandles i Python for at adskille viljestyret gribeintention fra muskelaktivitet i tremorbåndet, så adaptiv stivhed eller dæmpning kun påføres, mens der er tremor, og naturlig bevægelse bevares.',
+      en: 'Designed, 3D-printed and controlled a gripper that picks up four 2×2 LEGO bricks at a time and places them on a baseplate to spell words with a UR5 CB3 robot. Servo motion runs on a microcontroller programmed in C; a C++ desktop application with a GUI and a database of letter coordinates drives the robot over Modbus TCP/IP and URScript.',
+      da: 'Designede, 3D-printede og styrede en gripper, der samler fire 2×2 LEGO-klodser op ad gangen og placerer dem på en byggeplade, så en UR5 CB3-robot kan stave ord. Servostyringen kører på en mikrocontroller programmeret i C; en C++-applikation med GUI og en database over bogstavkoordinater styrer robotten over Modbus TCP/IP og URScript.',
     },
-    tags: ['Python', 'Signal processing', 'EMG', 'Biomechatronics'],
+    tags: ['C', 'C++', 'Microcontroller', 'Servo control', 'UR5', 'Modbus TCP/IP', 'URScript', '3D printing', 'GUI'],
+  },
+  {
+    id: 'plotter',
+    docx: false,
+    title: { en: 'Self-sharpening drawing robot from a modified 3D printer', da: 'Selvspidsende tegnerobot bygget af en ombygget 3D-printer' },
+    context: { en: 'Semester project · 1st semester · Autumn 2023', da: 'Semesterprojekt · 1. semester · Efterår 2023' },
+    summary: {
+      en: 'Converted a 3D printer into a pencil plotter that reproduces a photographed drawing. Image analysis extracts the edges of the source image and turns them into tool paths; the machine draws them with a pencil and automatically sharpens it in a built-in sharpener when needed.',
+      da: 'Ombyggede en 3D-printer til en blyantsplotter, der gengiver en fotograferet tegning. Billedanalyse finder kanterne i kildebilledet og omsætter dem til værktøjsbaner; maskinen tegner dem med blyant og spidser den automatisk i en indbygget blyantspidser, når der er behov.',
+    },
+    tags: ['Image analysis', 'Edge detection', 'Motion control', 'Mechanical design', '3D printer'],
   },
   {
     id: 'ignis',
@@ -373,28 +395,6 @@ export const projects: Project[] = [
     },
     tags: ['TypeScript', 'React', 'Vite', 'Vitest', 'UI/UX'],
     repo: 'https://github.com/Toasting-Snowdragon-9999/pokecol',
-  },
-  {
-    id: 'gripper',
-    docx: false,
-    title: { en: 'LEGO-writing gripper for a UR5 collaborative robot', da: 'LEGO-skrivende gripper til en UR5-cobot' },
-    context: { en: 'Semester project · 2nd semester · Spring 2024', da: 'Semesterprojekt · 2. semester · Forår 2024' },
-    summary: {
-      en: 'Designed, 3D-printed and controlled a gripper that picks up four 2×2 LEGO bricks at a time and places them on a baseplate to spell words with a UR5 CB3 robot. Servo motion runs on a microcontroller programmed in C; a C++ desktop application with a GUI and a database of letter coordinates drives the robot over Modbus TCP/IP and URScript.',
-      da: 'Designede, 3D-printede og styrede en gripper, der samler fire 2×2 LEGO-klodser op ad gangen og placerer dem på en byggeplade, så en UR5 CB3-robot kan stave ord. Servostyringen kører på en mikrocontroller programmeret i C; en C++-applikation med GUI og en database over bogstavkoordinater styrer robotten over Modbus TCP/IP og URScript.',
-    },
-    tags: ['C', 'C++', 'Microcontroller', 'Servo control', 'UR5', 'Modbus TCP/IP', 'URScript', '3D printing', 'GUI'],
-  },
-  {
-    id: 'plotter',
-    docx: false,
-    title: { en: 'Self-sharpening drawing robot from a modified 3D printer', da: 'Selvspidsende tegnerobot bygget af en ombygget 3D-printer' },
-    context: { en: 'Semester project · 1st semester · Autumn 2023', da: 'Semesterprojekt · 1. semester · Efterår 2023' },
-    summary: {
-      en: 'Converted a 3D printer into a pencil plotter that reproduces a photographed drawing. Image analysis extracts the edges of the source image and turns them into tool paths; the machine draws them with a pencil and automatically sharpens it in a built-in sharpener when needed.',
-      da: 'Ombyggede en 3D-printer til en blyantsplotter, der gengiver en fotograferet tegning. Billedanalyse finder kanterne i kildebilledet og omsætter dem til værktøjsbaner; maskinen tegner dem med blyant og spidser den automatisk i en indbygget blyantspidser, når der er behov.',
-    },
-    tags: ['Image analysis', 'Edge detection', 'Motion control', 'Mechanical design', '3D printer'],
   },
 ];
 
