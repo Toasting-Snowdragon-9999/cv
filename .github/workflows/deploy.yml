@@ -22,7 +22,7 @@ jobs:
       - name: Build with Astro and upload the site
         uses: withastro/action@v3
         env:
-          SITE_URL: https://toasting-snowdragon-9999.github.io
+          SITE_URL: https://christopher-faerch.github.io
           SITE_BASE: /cv
 
   deploy:

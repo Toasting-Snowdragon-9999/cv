@@ -1,6 +1,6 @@
 # CV website — Phillip Christopher Nøhr Færch
 
-**Live site:** <https://toasting-snowdragon-9999.github.io/cv/>
+**Live site:** <https://christopher-faerch.github.io/cv/>
 
 A single-page, bilingual (EN/DA) CV website plus downloadable Word CVs.
 Built with [Astro](https://astro.build) as a fully static site, hosted on
@@ -78,7 +78,7 @@ The site is published by **GitHub Pages** through the workflow in
 
 - Every push to `main` builds the site (`npm run build`) and publishes `dist/`.
 - The build sets `SITE_URL` and `SITE_BASE=/cv` so links work under
-  `https://toasting-snowdragon-9999.github.io/cv/`. Locally the base is `/`.
+  `https://christopher-faerch.github.io/cv/`. Locally the base is `/`.
 - Progress and logs: the **Actions** tab on GitHub. A deploy takes about a minute.
 - Pages must stay enabled under *Settings → Pages* with source **GitHub Actions**,
   and the repository must be public (free plan requirement).
@@ -87,7 +87,7 @@ The site is published by **GitHub Pages** through the workflow in
 
 1. Buy the domain (Cloudflare Registrar, Porkbun or Namecheap are all fine).
 2. At the registrar add a `CNAME` record for `www` (or the apex via ALIAS/ANAME)
-   pointing to `toasting-snowdragon-9999.github.io`.
+   pointing to `christopher-faerch.github.io`.
 3. On GitHub: *Settings → Pages → Custom domain*, enter the domain, tick
    *Enforce HTTPS* once the certificate is issued.
 4. In `.github/workflows/deploy.yml` set `SITE_URL` to the new domain and

@@ -20,8 +20,8 @@ export const person = {
   email: 'christopherfaerch@gmail.com',
   phone: '+45 22 18 77 00',
   phoneHref: 'tel:+4522187700',
-  github: 'https://github.com/Toasting-Snowdragon-9999',
-  githubLabel: 'Toasting-Snowdragon-9999',
+  github: 'https://github.com/christopher-faerch',
+  githubLabel: 'christopher-faerch',
   // Leave empty string to hide the LinkedIn link.
   linkedin: 'https://www.linkedin.com/in/christopher-f%C3%A6rch-39b355321/',
   linkedinLabel: 'linkedin.com/in/christopher-færch',
@@ -316,7 +316,7 @@ export const projects: Project[] = [
       { en: 'Gymnasium environment with Stable-Baselines3 and CMA-ES for automatic gait tuning.', da: 'Gymnasium-miljø med Stable-Baselines3 og CMA-ES til automatisk tuning af gangarter.' },
     ],
     tags: ['Python', 'MuJoCo', 'Control', 'CPG', 'Reinforcement learning', 'NumPy/SciPy'],
-    repo: 'https://github.com/Toasting-Snowdragon-9999/bio_inspired_muscle',
+    repo: 'https://github.com/christopher-faerch/bio_inspired_muscle',
     video: '/projects/quadruped.mp4',
     image: '/projects/go2.jpg',
     imageAlt: { en: 'Unitree Go2 quadruped in the MuJoCo simulator', da: 'Unitree Go2-robot i MuJoCo-simulatoren' },
@@ -340,7 +340,7 @@ export const projects: Project[] = [
       da: 'Lukket-sløjfe-regulering af en to-akset pan-tilt-kameraplatform. En Tiva TM4C123-mikrocontroller med FreeRTOS kører reguleringssløjferne og taler over SPI med en PYNQ-Z2 FPGA, hvor VHDL-moduler genererer motor-PWM og afkoder enkoderne. En OpenCV-pipeline i C++ detekterer en tennisbold og sender dens position til regulatoren, så platformen følger den.',
     },
     tags: ['C', 'FreeRTOS', 'VHDL', 'FPGA', 'SPI', 'OpenCV', 'C++', 'Control'],
-    repo: 'https://github.com/Toasting-Snowdragon-9999/pan_tilt_control_system',
+    repo: 'https://github.com/christopher-faerch/pan_tilt_control_system',
   },
   {
     id: 'mobile-robot',
@@ -351,7 +351,7 @@ export const projects: Project[] = [
       da: 'En TurtleBot3 Burger, der udfører ruter sendt til den som lyd. En GUI opbygger ruten, en selvdesignet halv-dupleks-protokol koder den som DTMF-toner, og robotten afkoder dem i realtid med Goertzel-algoritmen og kører ruten via ROS 2. C++-koden følger en firelags-arkitektur inspireret af TCP/IP (fysisk lag, datalink-, transport- og applikationslag) med CRC-fejldetektion, kvitteringer og gensendelsestimere. Testet pålidelig ved op til 60 dBA baggrundsstøj; 100 bit overført på 4,4 s.',
     },
     tags: ['C++', 'ROS 2', 'Signal processing', 'Goertzel', 'Protocol design', 'Software architecture', 'TurtleBot3', 'Doxygen'],
-    repo: 'https://github.com/Toasting-Snowdragon-9999/Mobile_robotsystem',
+    repo: 'https://github.com/christopher-faerch/Mobile_robotsystem',
   },
   {
     id: 'gripper',
@@ -395,7 +395,7 @@ export const projects: Project[] = [
       da: 'En webapp til at holde styr på samlekort på tværs af seks spil, vist som et rigtigt ringbind med 3×3 lommesider og animeret sidevending. Ønskeliste, markedsværdi og konti, virker offline. React 19, TypeScript og Vite med Vitest-tests, dokumenteret arkitektur og linting.',
     },
     tags: ['TypeScript', 'React', 'Vite', 'Vitest', 'UI/UX'],
-    repo: 'https://github.com/Toasting-Snowdragon-9999/pokecol',
+    repo: 'https://github.com/christopher-faerch/pokecol',
   },
 ];
 
