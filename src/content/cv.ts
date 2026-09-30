@@ -405,7 +405,7 @@ export const skills: SkillGroup[] = [
   {
     name: { en: 'Ways of working', da: 'Arbejdsform' },
     items: [
-      { en: 'Part of an eight-person development team on a large codebase at 4X-Robots', da: 'Del af et udviklingsteam på otte på en stor kodebase hos 4X-Robots' },
+      { en: 'Part of a six-person development team on a large codebase at 4X-Robots', da: 'Del af et udviklingsteam på seks på en stor kodebase hos 4X-Robots' },
       { en: 'Project work in small teams every semester', da: 'Projektarbejde i små grupper hvert semester' },
       { en: 'Report writing and oral defence', da: 'Rapportskrivning og mundtligt forsvar' },
       { en: 'Curious, thorough, hands-on', da: 'Nysgerrig, grundig, praktisk anlagt' },

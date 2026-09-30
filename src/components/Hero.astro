@@ -1,6 +1,7 @@
 ---
 import T from './T.astro';
 import { person, ui } from '../content/cv';
+import { withBase } from '../lib/base';
 const parts = person.name.split(' ');
 const surname = parts[parts.length - 1];
 const given = parts.slice(0, -1);
@@ -12,11 +13,11 @@ const given = parts.slice(0, -1);
       <h1>{given.join(' ')} <em>{surname}</em></h1>
       <p class="hero-tagline"><T s={person.tagline} /></p>
       <div class="hero-actions">
-        <a class="btn en" href={person.cvFile.en} download>
+        <a class="btn en" href={withBase(person.cvFile.en)} download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
           {ui.downloadCv.en}
         </a>
-        <a class="btn da" href={person.cvFile.da} download>
+        <a class="btn da" href={withBase(person.cvFile.da)} download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
           {ui.downloadCv.da}
         </a>
@@ -48,7 +49,7 @@ const given = parts.slice(0, -1);
       </div>
     </div>
     <div class="photo-frame">
-      <img src="/photo.jpg" alt={person.name} width="200" height="200" loading="eager" />
+      <img src={withBase('/photo.jpg')} alt={person.name} width="200" height="200" loading="eager" />
     </div>
   </div>
 </section>

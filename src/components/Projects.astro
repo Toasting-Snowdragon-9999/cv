@@ -2,6 +2,7 @@
 import T from './T.astro';
 import Section from './Section.astro';
 import { projects, ui } from '../content/cv';
+import { withBase } from '../lib/base';
 const featured = projects.filter((p) => p.featured);
 const others = projects.filter((p) => !p.featured);
 ---
@@ -11,11 +12,11 @@ const others = projects.filter((p) => !p.featured);
       <article class="card featured" id={`project-${p.id}`}>
         <div class="media">
           {p.video ? (
-            <video autoplay muted loop playsinline preload="metadata" poster={p.image ?? '/projects/quadruped-poster.jpg'} aria-label={p.imageAlt?.en}>
-              <source src={p.video} type="video/mp4" />
+            <video autoplay muted loop playsinline preload="metadata" poster={withBase(p.image ?? '/projects/quadruped-poster.jpg')} aria-label={p.imageAlt?.en}>
+              <source src={withBase(p.video)} type="video/mp4" />
             </video>
           ) : p.image ? (
-            <img src={p.image} alt={p.imageAlt?.en ?? ''} loading="lazy" />
+            <img src={withBase(p.image)} alt={p.imageAlt?.en ?? ''} loading="lazy" />
           ) : null}
         </div>
         <div class="body">

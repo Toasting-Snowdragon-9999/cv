@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { person, profile } from '../content/cv';
+import { withBase } from '../lib/base';
 interface Props { title?: string }
 const title = Astro.props.title ?? `${person.name} · CV`;
 const description = profile.summary.en;
@@ -16,9 +17,9 @@ const description = profile.summary.en;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="profile" />
-    <meta property="og:image" content="/photo.jpg" />
+    <meta property="og:image" content={new URL(withBase('/photo.jpg'), Astro.site)} />
     <meta name="theme-color" content="#f4f1ea" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

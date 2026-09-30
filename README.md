@@ -1,8 +1,10 @@
 # CV website — Phillip Christopher Nøhr Færch
 
+**Live site:** <https://toasting-snowdragon-9999.github.io/cv/>
+
 A single-page, bilingual (EN/DA) CV website plus downloadable Word CVs.
 Built with [Astro](https://astro.build) as a fully static site, hosted on
-Cloudflare Pages, source on GitHub. No backend, no database, no tracking.
+GitHub Pages straight from this repository. No backend, no database, no tracking.
 
 ## Prerequisites
 
@@ -71,20 +73,31 @@ rewrite them programmatically (`node scripts/build-docx.js`).
 
 ## Deploying
 
-The site is deployed by Cloudflare Pages, connected to this GitHub repository.
+The site is published by **GitHub Pages** through the workflow in
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
 
-- Every push to `main` triggers a build (`npm run build`, output `dist/`).
-- Other branches get their own preview URL.
-- Temporary address: `https://<project>.pages.dev`.
+- Every push to `main` builds the site (`npm run build`) and publishes `dist/`.
+- The build sets `SITE_URL` and `SITE_BASE=/cv` so links work under
+  `https://toasting-snowdragon-9999.github.io/cv/`. Locally the base is `/`.
+- Progress and logs: the **Actions** tab on GitHub. A deploy takes about a minute.
+- Pages must stay enabled under *Settings → Pages* with source **GitHub Actions**,
+  and the repository must be public (free plan requirement).
 
 ### Attaching your own domain later
 
-1. Buy the domain (Cloudflare Registrar is simplest; Porkbun or Namecheap also fine).
-2. Cloudflare dashboard → Workers & Pages → this project → **Custom domains** → *Set up a custom domain*.
-3. If the domain is at Cloudflare, DNS is configured automatically. Otherwise add a
-   `CNAME` record at your registrar pointing the domain to `<project>.pages.dev`.
-4. HTTPS is issued automatically within a few minutes.
-5. Update `site` in `astro.config.mjs` to the new URL so `og:` metadata is right.
+1. Buy the domain (Cloudflare Registrar, Porkbun or Namecheap are all fine).
+2. At the registrar add a `CNAME` record for `www` (or the apex via ALIAS/ANAME)
+   pointing to `toasting-snowdragon-9999.github.io`.
+3. On GitHub: *Settings → Pages → Custom domain*, enter the domain, tick
+   *Enforce HTTPS* once the certificate is issued.
+4. In `.github/workflows/deploy.yml` set `SITE_URL` to the new domain and
+   `SITE_BASE` to `/`, then push. The site now lives at the domain root.
+
+### Alternative: Cloudflare Pages
+
+The same repository can be connected in the Cloudflare dashboard
+(Workers & Pages → Create → Connect to Git). Build command `npm run build`,
+output `dist`, and set `SITE_URL` to the Cloudflare URL with `SITE_BASE=/`.
 
 ## Architecture
 
@@ -111,7 +124,9 @@ language and the choice persists.
 
 ```
 cv/
-├── astro.config.mjs        Astro config (site URL, inline CSS)
+├── .github/workflows/
+│   └── deploy.yml          builds and publishes to GitHub Pages on every push
+├── astro.config.mjs        Astro config (site URL and base path from env, inline CSS)
 ├── package.json            scripts: dev / build / preview / check
 ├── tsconfig.json
 ├── public/                 copied verbatim into the site root
@@ -125,6 +140,8 @@ cv/
 └── src/
     ├── content/
     │   └── cv.ts           ★ all CV text, bilingual, typed
+    ├── lib/
+    │   └── base.ts         withBase(): prefixes asset paths with the configured base
     ├── styles/
     │   └── global.css      design tokens (colours, fonts), layout, print styles
     ├── layouts/
