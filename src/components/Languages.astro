@@ -1,0 +1,15 @@
+---
+import T from './T.astro';
+import Section from './Section.astro';
+import { languages, ui } from '../content/cv';
+---
+<Section id="languages" num="06" title={ui.languages}>
+  <ul class="lang-rows">
+    {languages.map((l) => (
+      <li>
+        <span class="lang-name"><T s={l.name} /></span>
+        <span class="lang-level"><T s={l.level} /></span>
+      </li>
+    ))}
+  </ul>
+</Section>

@@ -197,8 +197,31 @@ details.more > .entry:first-of-type { border-top: 1px solid var(--line); padding
 .langs { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px 32px; font-size: 0.93rem; color: var(--ink-soft); }
 .langs b { color: var(--ink); font-weight: 500; }
 
+/* ---------- Languages ---------- */
+.lang-rows { max-width: 480px; }
+.lang-rows li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 8px 0; border-top: 1px dashed var(--line); }
+.lang-rows li:first-child { border-top: 0; padding-top: 0; }
+.lang-name { font-size: 1.02rem; color: var(--ink); }
+.lang-level { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); text-align: right; }
+
 /* ---------- Footer ---------- */
-.footer { border-top: 1px solid var(--line); padding: 32px 0 48px; font-size: 0.82rem; color: var(--ink-muted); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer { border-top: 1px solid var(--line); padding: 40px 0 48px; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; }
+.footer-name { font-family: var(--font-display); font-size: 1.3rem; color: var(--ink); margin-bottom: 4px; }
+.footer-sub { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.5; }
+.footer-icons { display: flex; gap: 10px; }
+.footer-icons a {
+  width: 44px; height: 44px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line); background: var(--bg-card); color: var(--olive-deep);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.footer-icons a:hover { background: var(--olive); color: #fff; transform: translateY(-1px); text-decoration: none; }
+.footer-icons svg { width: 18px; height: 18px; }
+.footer-contact { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 6px 10px; font-size: 0.92rem; color: var(--ink-soft); }
+.footer-contact a { color: var(--ink-soft); }
+.footer-contact a:hover { color: var(--olive-deep); }
+.footer-contact .dot { color: var(--ink-muted); }
+.footer-copy { margin-top: 34px; text-align: center; font-size: 0.8rem; color: var(--ink-muted); }
 
 /* ---------- Motion ---------- */
 @media (prefers-reduced-motion: reduce) {
@@ -210,7 +233,7 @@ details.more > .entry:first-of-type { border-top: 1px solid var(--line); padding
 @media print {
   :root { --bg: #fff; --bg-card: #fff; }
   body { font-size: 11pt; }
-  .topbar, .hero-actions, .card-links, .lang, .footer .built { display: none !important; }
+  .topbar, .hero-actions, .card-links, .lang, .footer-icons { display: none !important; }
   .section { padding: 18pt 0; break-inside: auto; }
   .card { break-inside: avoid; box-shadow: none; }
   .card.featured .media { display: none; }

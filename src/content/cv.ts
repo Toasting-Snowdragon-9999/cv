@@ -22,8 +22,9 @@ export const person = {
   phoneHref: 'tel:+4522187700',
   github: 'https://github.com/Toasting-Snowdragon-9999',
   githubLabel: 'Toasting-Snowdragon-9999',
-  // TODO: add LinkedIn URL or leave empty string to hide the link.
-  linkedin: '',
+  // Leave empty string to hide the LinkedIn link.
+  linkedin: 'https://www.linkedin.com/in/christopher-f%C3%A6rch-39b355321/',
+  linkedinLabel: 'linkedin.com/in/christopher-færch',
   cvFile: {
     en: '/Phillip_Christopher_Faerch_CV.docx',
     da: '/Phillip_Christopher_Faerch_CV_DA.docx',
@@ -449,6 +450,8 @@ export const ui = {
   viewRepo: { en: 'View repository', da: 'Se repository' },
   textPending: { en: 'Description coming soon', da: 'Beskrivelse følger' },
   languages: { en: 'Languages', da: 'Sprog' },
+  degreeLine: { en: 'BSc in Engineering, Robot Systems — SDU', da: 'Bachelor i robotteknologi — SDU' },
+  updated: { en: 'Updated', da: 'Opdateret' },
   contact: { en: 'Contact', da: 'Kontakt' },
   footer: { en: 'Last updated', da: 'Sidst opdateret' },
   bachelorHighlight: { en: 'Bachelor project', da: 'Bachelorprojekt' },

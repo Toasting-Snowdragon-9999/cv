@@ -110,7 +110,7 @@ function build(lang) {
     children: [
       run(`${S.born}: ${fmtBorn(person.born, lang)}   ·   GitHub: `, { size: 20, color: MUTED }),
       link(person.githubLabel, person.github),
-      ...(person.linkedin ? [run('   ·   LinkedIn: ', { size: 20, color: MUTED }), link(person.linkedin.replace(/^https?:\/\//, ''), person.linkedin)] : []),
+      ...(person.linkedin ? [run('   ·   LinkedIn: ', { size: 20, color: MUTED }), link(person.linkedinLabel, person.linkedin)] : []),
     ],
   }));
 
