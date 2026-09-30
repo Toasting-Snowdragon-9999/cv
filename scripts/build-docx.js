@@ -199,10 +199,6 @@ function build(lang) {
     children: [run(languages.map((l) => `${t(l.name)} – ${t(l.level)}`).join('   ·   '))],
   }));
 
-  children.push(new Paragraph({
-    spacing: { before: 240 },
-    children: [run(`${S.updated} ${lastUpdated}`, { size: 17, color: MUTED })],
-  }));
 
   return new Document({
     creator: person.name,

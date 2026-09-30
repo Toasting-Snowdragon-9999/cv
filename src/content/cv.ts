@@ -345,7 +345,7 @@ export const projects: Project[] = [
   {
     id: 'exoskeleton',
     title: { en: 'EMG-driven finger exoskeleton for tremor suppression', da: 'EMG-styret finger-exoskelet til tremordæmpning' },
-    context: { en: 'Ongoing personal research project · 2026', da: 'Igangværende personligt forskningsprojekt · 2026' },
+    context: { en: 'Master class: Adaptive Embodied Control Systems · SDU · 2026', da: 'Master class: Adaptive Embodied Control Systems · SDU · 2026' },
     summary: {
       en: 'A 2-DOF thumb–index hand exoskeleton concept for Parkinsonian tremor. Surface EMG is processed in Python to separate voluntary grasp intent from tremor-band muscle activity, so that adaptive stiffness or damping is applied only while tremor is present and natural movement is preserved.',
       da: 'Et 2-DOF tommel–pegefinger-exoskelet-koncept til parkinsontremor. Overflade-EMG behandles i Python for at adskille viljestyret gribeintention fra muskelaktivitet i tremorbåndet, så adaptiv stivhed eller dæmpning kun påføres, mens der er tremor, og naturlig bevægelse bevares.',
@@ -355,7 +355,7 @@ export const projects: Project[] = [
   {
     id: 'ignis',
     title: { en: 'Ignis – C++ rendering and game engine', da: 'Ignis – C++ rendering- og spilmotor' },
-    context: { en: 'Personal project · 2025–present · part of the Helios project', da: 'Personligt projekt · 2025–nu · del af Helios-projektet' },
+    context: { en: 'Personal project · 2025–present', da: 'Personligt projekt · 2025–nu' },
     summary: {
       en: 'A from-scratch OpenGL engine in modern C++ with a streamed procedural voxel planet as the test world. Chunk generation and meshing run on a priority job system across worker threads while the render thread uploads to the GPU, keeping the world at well over 1000 fps as the player moves. Includes a quaternion-based free-flight camera, day/night lighting, a Fresnel ocean shader, an entity and inventory system, and an ImGui debug overlay. Built with CMake, GLFW, GLAD, GLM, Assimp and headless test suites.',
       da: 'En OpenGL-motor skrevet fra bunden i moderne C++ med en streamet, procedurelt genereret voxel-planet som testverden. Chunk-generering og meshing kører på et prioriteret job-system på tværs af worker-tråde, mens render-tråden uploader til GPU’en, så verdenen holder langt over 1000 fps, mens spilleren bevæger sig. Indeholder et quaternion-baseret frit kamera, dag/nat-belysning, en Fresnel-havshader, et entity- og inventory-system samt et ImGui-debugoverlay. Bygget med CMake, GLFW, GLAD, GLM, Assimp og headless testsuiter.',
