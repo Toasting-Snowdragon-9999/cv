@@ -232,8 +232,8 @@ export const education: Education[] = [
     to: null,
     link: 'https://www.sdu.dk/da/uddannelse/kandidat/erhvervskandidat/robotteknologi',
     description: {
-      en: 'Three-year industrial master’s: first year full-time, then part-time study combined with at least 25 hours a week of engineering work. Focus on AI, computer vision, machine learning, robot design and autonomous systems. Taught in English.',
-      da: 'Treårig erhvervskandidat: første år på fuld tid, derefter deltidsstudie kombineret med mindst 25 timers ingeniørarbejde om ugen. Fokus på AI, computer vision, machine learning, robotdesign og autonome systemer. Undervisning på engelsk.',
+      en: 'Three-year industrial master’s: first year full-time, then part-time study combined with at least 25 hours a week of engineering work. Focus on AI, computer vision, machine learning, robot design and autonomous systems.',
+      da: 'Treårig erhvervskandidat: første år på fuld tid, derefter deltidsstudie kombineret med mindst 25 timers ingeniørarbejde om ugen. Fokus på AI, computer vision, machine learning, robotdesign og autonome systemer.',
     },
   },
   {
@@ -425,9 +425,14 @@ export const skills: SkillGroup[] = [
   },
 ];
 
+export const interests: L = {
+  en: 'Video games, mostly League of Legends, World of Warcraft and Counter-Strike. Working out two to three times a week and playing padel. Skiing whenever the season allows.',
+  da: 'Computerspil, især League of Legends, World of Warcraft og Counter-Strike. Træner to til tre gange om ugen og spiller padel. Elsker at stå på ski, når sæsonen tillader det.',
+};
+
 export const languages: { name: L; level: L }[] = [
   { name: { en: 'Danish', da: 'Dansk' }, level: { en: 'Native', da: 'Modersmål' } },
-  { name: { en: 'English', da: 'Engelsk' }, level: { en: 'Professional (studies taught in English)', da: 'Professionelt (undervisning på engelsk)' } },
+  { name: { en: 'English', da: 'Engelsk' }, level: { en: 'Professional', da: 'Professionelt' } },
 ];
 
 export const ui = {
@@ -450,6 +455,7 @@ export const ui = {
   viewRepo: { en: 'View repository', da: 'Se repository' },
   textPending: { en: 'Description coming soon', da: 'Beskrivelse følger' },
   languages: { en: 'Languages', da: 'Sprog' },
+  interests: { en: 'Interests', da: 'Interesser' },
   degreeLine: { en: 'BSc in Engineering, Robot Systems — SDU', da: 'Bachelor i robotteknologi — SDU' },
   updated: { en: 'Updated', da: 'Opdateret' },
   contact: { en: 'Contact', da: 'Kontakt' },

@@ -197,7 +197,10 @@ details.more > .entry:first-of-type { border-top: 1px solid var(--line); padding
 .langs { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px 32px; font-size: 0.93rem; color: var(--ink-soft); }
 .langs b { color: var(--ink); font-weight: 500; }
 
-/* ---------- Languages ---------- */
+/* ---------- Interests & languages ---------- */
+.duo { display: grid; grid-template-columns: 1fr; gap: 40px; }
+@media (min-width: 720px) { .duo { grid-template-columns: 1fr 1fr; gap: 56px; } }
+.interests { color: var(--ink-soft); font-size: 0.98rem; line-height: 1.7; max-width: 480px; }
 .lang-rows { max-width: 480px; }
 .lang-rows li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 8px 0; border-top: 1px dashed var(--line); }
 .lang-rows li:first-child { border-top: 0; padding-top: 0; }

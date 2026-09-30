@@ -7,7 +7,7 @@ import {
   Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType, TabStopType,
   LevelFormat, BorderStyle, ExternalHyperlink,
 } from 'docx';
-import { person, profile, experience, education, projects, skills, languages, ui, lastUpdated } from '../src/content/cv.ts';
+import { person, profile, experience, education, projects, skills, interests, languages, ui, lastUpdated } from '../src/content/cv.ts';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -21,13 +21,13 @@ const CONTENT_WIDTH = 11906 - 2 * 900; // A4 width minus margins, in DXA
 
 const STR = {
   en: {
-    cv: 'Curriculum Vitae', profile: 'Profile', education: 'Education', projects: 'Selected projects',
+    cv: 'Curriculum Vitae', profile: 'Profile', interests: 'Interests', education: 'Education', projects: 'Selected projects',
     experience: 'Work experience', skills: 'Skills', languages: 'Languages', present: 'present',
     born: 'Born', address: 'Address', coursework: 'Coursework', updated: 'Last updated', repo: 'Repository',
     bachelorProject: 'Bachelor project',
   },
   da: {
-    cv: 'Curriculum Vitae', profile: 'Profil', education: 'Uddannelse', projects: 'Udvalgte projekter',
+    cv: 'Curriculum Vitae', profile: 'Profil', interests: 'Interesser', education: 'Uddannelse', projects: 'Udvalgte projekter',
     experience: 'Erhvervserfaring', skills: 'Kompetencer', languages: 'Sprog', present: 'nu',
     born: 'Født', address: 'Adresse', coursework: 'Kurser', updated: 'Sidst opdateret', repo: 'Repository',
     bachelorProject: 'Bachelorprojekt',
@@ -54,7 +54,7 @@ function build(lang) {
 
   const h1 = (text) => new Paragraph({
     heading: HeadingLevel.HEADING_1,
-    spacing: { before: 170, after: 60 },
+    spacing: { before: 150, after: 50 },
     border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: RULE, space: 4 } },
     children: [new TextRun({ text, font: FONT_HEAD, size: 26, color: OLIVE, bold: false })],
   });
@@ -192,11 +192,14 @@ function build(lang) {
     }));
   }
 
-  // ---- Languages ----
-  children.push(h1(S.languages));
+  // ---- Interests ----
+  children.push(h1(S.interests));
+  children.push(body(t(interests)));
+
+  // ---- Languages (one line, no heading, to keep the CV on two pages) ----
   children.push(new Paragraph({
     spacing: { after: 50 },
-    children: [run(languages.map((l) => `${t(l.name)} – ${t(l.level)}`).join('   ·   '))],
+    children: [run(`${S.languages}: `, { bold: true }), run(languages.map((l) => `${t(l.name)} – ${t(l.level)}`).join('   ·   '))],
   }));
 
 
@@ -218,7 +221,7 @@ function build(lang) {
       }],
     },
     sections: [{
-      properties: { page: { margin: { top: 720, right: 900, bottom: 720, left: 900 } } },
+      properties: { page: { margin: { top: 640, right: 900, bottom: 640, left: 900 } } },
       children,
     }],
   });

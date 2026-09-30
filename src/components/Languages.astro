@@ -1,15 +1,31 @@
 ---
 import T from './T.astro';
-import Section from './Section.astro';
-import { languages, ui } from '../content/cv';
+import { interests, languages, ui } from '../content/cv';
 ---
-<Section id="languages" num="06" title={ui.languages}>
-  <ul class="lang-rows">
-    {languages.map((l) => (
-      <li>
-        <span class="lang-name"><T s={l.name} /></span>
-        <span class="lang-level"><T s={l.level} /></span>
-      </li>
-    ))}
-  </ul>
-</Section>
+<section class="section" id="interests">
+  <div class="container">
+    <div class="duo">
+      <div>
+        <div class="section-head">
+          <span class="section-num">06</span>
+          <h2 class="section-title"><T s={ui.interests} /></h2>
+        </div>
+        <p class="interests"><T s={interests} /></p>
+      </div>
+      <div id="languages">
+        <div class="section-head">
+          <span class="section-num">07</span>
+          <h2 class="section-title"><T s={ui.languages} /></h2>
+        </div>
+        <ul class="lang-rows">
+          {languages.map((l) => (
+            <li>
+              <span class="lang-name"><T s={l.name} /></span>
+              <span class="lang-level"><T s={l.level} /></span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
