@@ -1,0 +1,8 @@
+---
+import T from './T.astro';
+import { person, ui, lastUpdated } from '../content/cv';
+---
+<footer class="footer container">
+  <span>© {new Date(lastUpdated).getFullYear()} {person.name}</span>
+  <span><T s={ui.footer} /> {lastUpdated}</span>
+</footer>

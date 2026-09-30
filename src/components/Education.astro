@@ -1,0 +1,61 @@
+---
+import T from './T.astro';
+import Section from './Section.astro';
+import { education, ui } from '../content/cv';
+
+const fmtYear = (ym: string) => ym.slice(0, 4);
+const chip = (kind?: string) => {
+  if (kind === 'project') return { cls: 'chip project', s: ui.project };
+  if (kind === 'elective') return { cls: 'chip', s: ui.elective };
+  if (kind === 'firstYearExam') return { cls: 'chip exam', s: ui.firstYearExam };
+  return null;
+};
+---
+<Section id="education" num="03" title={ui.nav.education}>
+  <div class="entries">
+    {education.map((e) => (
+      <article class="entry">
+        <div class="entry-when">{fmtYear(e.from)} – {e.to ? fmtYear(e.to) : <T s={ui.present} />}</div>
+        <div>
+          <h3 class="entry-title"><T s={e.degree} /></h3>
+          <div class="entry-sub">
+            {e.link ? <a href={e.link} target="_blank" rel="noopener"><T s={e.institution} /></a> : <T s={e.institution} />} · {e.place}
+          </div>
+          {e.description && <p><T s={e.description} /></p>}
+          {e.semesters && (
+            <details class="coursework">
+              <summary><T s={ui.viewCoursework} /></summary>
+              <div class="semesters">
+                {e.semesters.map((sem) => {
+                  const total = sem.courses.reduce((n, c) => n + c.ects, 0);
+                  return (
+                    <details class="semester">
+                      <summary>
+                        <span><T s={sem.label} /><span class="term">{sem.term}</span></span>
+                        <span class="ects">{total} {ui.ects.en}</span>
+                      </summary>
+                      <ul class="courses">
+                        {sem.courses.map((c) => {
+                          const k = chip(c.kind);
+                          return (
+                            <li>
+                              <span class="c-title"><T s={c.title} /></span>
+                              <span class="c-meta">
+                                {k && <span class={k.cls}><T s={k.s} /></span>}
+                                <span>{c.ects} ECTS</span>
+                              </span>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </details>
+                  );
+                })}
+              </div>
+            </details>
+          )}
+        </div>
+      </article>
+    ))}
+  </div>
+</Section>

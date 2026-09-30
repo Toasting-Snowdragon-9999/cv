@@ -1,0 +1,19 @@
+---
+import T from './T.astro';
+import Section from './Section.astro';
+import { skills, languages, ui } from '../content/cv';
+---
+<Section id="skills" num="05" title={ui.nav.skills}>
+  <div class="skills-grid">
+    {skills.map((g) => (
+      <div class="skill-group">
+        <h3><T s={g.name} /></h3>
+        <ul>{g.items.map((i) => <li>{typeof i === 'string' ? i : <T s={i} />}</li>)}</ul>
+      </div>
+    ))}
+  </div>
+  <div class="langs">
+    <span><b><T s={ui.languages} /></b></span>
+    {languages.map((l) => <span><b><T s={l.name} /></b> · <T s={l.level} /></span>)}
+  </div>
+</Section>

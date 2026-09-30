@@ -1,0 +1,13 @@
+---
+import T from './T.astro';
+import Section from './Section.astro';
+import { profile, ui } from '../content/cv';
+---
+<Section id="profile" num="01" title={ui.nav.profile}>
+  <div class="profile-grid">
+    <p class="lead"><T s={profile.summary} /></p>
+    <ul class="highlights">
+      {profile.highlights.map((h) => <li><T s={h} /></li>)}
+    </ul>
+  </div>
+</Section>

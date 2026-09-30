@@ -1,0 +1,54 @@
+---
+import T from './T.astro';
+import { person, ui } from '../content/cv';
+const parts = person.name.split(' ');
+const surname = parts[parts.length - 1];
+const given = parts.slice(0, -1);
+---
+<section class="hero container" id="top">
+  <div class="hero-grid">
+    <div>
+      <p class="hero-kicker"><T s={{ en: 'Curriculum vitae', da: 'Curriculum vitae' }} /></p>
+      <h1>{given.join(' ')} <em>{surname}</em></h1>
+      <p class="hero-tagline"><T s={person.tagline} /></p>
+      <div class="hero-actions">
+        <a class="btn en" href={person.cvFile.en} download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          {ui.downloadCv.en}
+        </a>
+        <a class="btn da" href={person.cvFile.da} download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          {ui.downloadCv.da}
+        </a>
+        <a class="btn ghost" href="#projects"><T s={ui.nav.projects} /></a>
+      </div>
+      <div class="contact-row">
+        <a href={`mailto:${person.email}`}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          {person.email}
+        </a>
+        <a href={person.phoneHref}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+          {person.phone}
+        </a>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <T s={person.city} />
+        </span>
+        <a href={person.github} target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.84c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+          GitHub
+        </a>
+        {person.linkedin && (
+          <a href={person.linkedin} target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.5H3.6V21h2.9V8.5zM5 3.5a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4zM21 21h-2.9v-6.1c0-1.5-.03-3.3-2-3.3s-2.3 1.6-2.3 3.2V21H11V8.5h2.8v1.7h.04c.4-.7 1.3-1.5 2.8-1.5 3 0 3.5 2 3.5 4.5V21z"/></svg>
+            LinkedIn
+          </a>
+        )}
+      </div>
+    </div>
+    <div class="photo-frame">
+      <img src="/photo.jpg" alt={person.name} width="200" height="200" loading="eager" />
+    </div>
+  </div>
+</section>

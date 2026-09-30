@@ -1,0 +1,45 @@
+---
+import T from './T.astro';
+import Section from './Section.astro';
+import { experience, ui } from '../content/cv';
+import type { Experience } from '../content/cv';
+
+const VISIBLE = 3;
+const sorted = [...experience].sort((a, b) => (b.to ?? '9999').localeCompare(a.to ?? '9999') || b.from.localeCompare(a.from));
+const first = sorted.slice(0, VISIBLE);
+const rest = sorted.slice(VISIBLE);
+
+const fmt = (ym: string) => {
+  const [y, m] = ym.split('-');
+  return `${m}/${y}`;
+};
+---
+<Section id="experience" num="02" title={ui.nav.experience}>
+  <div class="entries">
+    {first.map((e) => (
+      <article class="entry">
+        <div class="entry-when">{fmt(e.from)} – {e.to ? fmt(e.to) : <T s={ui.present} />}</div>
+        <div>
+          <h3 class="entry-title"><T s={e.role} /></h3>
+          <div class="entry-sub">{e.company} · {e.place}</div>
+          <p><T s={e.description} /></p>
+        </div>
+      </article>
+    ))}
+    {rest.length > 0 && (
+      <details class="more">
+        <summary><T s={ui.showAllExperience} /></summary>
+        {rest.map((e) => (
+          <article class="entry">
+            <div class="entry-when">{fmt(e.from)} – {e.to ? fmt(e.to) : <T s={ui.present} />}</div>
+            <div>
+              <h3 class="entry-title"><T s={e.role} /></h3>
+              <div class="entry-sub">{e.company} · {e.place}</div>
+              <p><T s={e.description} /></p>
+            </div>
+          </article>
+        ))}
+      </details>
+    )}
+  </div>
+</Section>

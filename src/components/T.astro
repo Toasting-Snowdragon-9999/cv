@@ -1,0 +1,10 @@
+---
+// Renders a bilingual string. Both languages are emitted; CSS shows one
+// depending on <html data-lang="en|da">.
+import type { L } from '../content/cv';
+interface Props { s: L; as?: string; class?: string }
+const { s, as: Tag = 'span', class: cls } = Astro.props;
+---
+<Fragment>
+  <Tag class:list={['en', cls]}>{s.en}</Tag><Tag class:list={['da', cls]}>{s.da}</Tag>
+</Fragment>

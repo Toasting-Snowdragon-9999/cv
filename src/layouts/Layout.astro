@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+import { person, profile } from '../content/cv';
+interface Props { title?: string }
+const title = Astro.props.title ?? `${person.name} · CV`;
+const description = profile.summary.en;
+---
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={person.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="profile" />
+    <meta property="og:image" content="/photo.jpg" />
+    <meta name="theme-color" content="#f4f1ea" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>
+      // Pick language before first paint: saved choice, else browser language.
+      (function () {
+        var lang = 'en';
+        try {
+          lang = localStorage.getItem('cv-lang') || ((navigator.language || '').toLowerCase().startsWith('da') ? 'da' : 'en');
+        } catch (e) {}
+        document.documentElement.setAttribute('data-lang', lang);
+        document.documentElement.lang = lang;
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+    <script>
+      // Language toggle
+      document.querySelectorAll<HTMLButtonElement>('[data-set]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const lang = btn.dataset.set!;
+          document.documentElement.setAttribute('data-lang', lang);
+          document.documentElement.lang = lang;
+          try { localStorage.setItem('cv-lang', lang); } catch {}
+        });
+      });
+
+      // Open every disclosure when printing, restore afterwards.
+      const opened: HTMLDetailsElement[] = [];
+      window.addEventListener('beforeprint', () => {
+        document.querySelectorAll<HTMLDetailsElement>('details:not([open])').forEach((d) => { d.open = true; opened.push(d); });
+      });
+      window.addEventListener('afterprint', () => { opened.splice(0).forEach((d) => (d.open = false)); });
+    </script>
+  </body>
+</html>

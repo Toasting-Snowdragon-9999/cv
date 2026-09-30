@@ -1,0 +1,25 @@
+---
+import T from './T.astro';
+import { person, ui } from '../content/cv';
+const items = [
+  { href: '#profile', n: '01', s: ui.nav.profile },
+  { href: '#experience', n: '02', s: ui.nav.experience },
+  { href: '#education', n: '03', s: ui.nav.education },
+  { href: '#projects', n: '04', s: ui.nav.projects },
+  { href: '#skills', n: '05', s: ui.nav.skills },
+];
+---
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="#top">{person.shortName}</a>
+    <nav class="nav" aria-label="Sections">
+      {items.map((i) => (
+        <a href={i.href}><span class="n">{i.n}</span><T s={i.s} /></a>
+      ))}
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-set="en" aria-label="English">EN</button>
+      <button type="button" data-set="da" aria-label="Dansk">DA</button>
+    </div>
+  </div>
+</header>
