@@ -58,10 +58,8 @@ Typical edits:
 
 ### Adding your photo
 
-Put a square-ish JPEG at **`public/photo.jpg`** (overwrite the beige
-placeholder that is there now). Keep the exact file name. Nothing else needs
-to change; the site crops it to a square with `object-fit: cover`.
-Around 800×800 px is plenty.
+Put a JPEG at **`public/photo.jpg`**, keeping the exact file name. Nothing
+else needs to change. The frame is 4:5 portrait; around 800×1000 px is plenty.
 
 ### Updating the Word CVs
 

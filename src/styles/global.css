@@ -95,7 +95,7 @@ html[data-lang='da'] .lang [data-set='da'] { background: var(--olive); color: #f
 .btn svg { width: 16px; height: 16px; }
 
 .photo-frame {
-  width: 200px; aspect-ratio: 1; border-radius: var(--radius); overflow: hidden;
+  width: 200px; aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden;
   background: var(--bg-soft); box-shadow: 0 1px 0 var(--line), 0 20px 40px -24px rgba(43, 38, 32, 0.35);
   justify-self: start;
 }
